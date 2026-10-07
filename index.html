@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css " />
+  <title>To Do List App</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="#" class="nav_logo">
+        <i class="ri-todo-line"></i> Todo List Web
+      </a>
+      <div class="nav_menu">
+        <ul class="nav_list">
+          <li>
+            <a href="" class="nav_link">
+              <i class="ri-notification-2-line"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="title section">
+      <div class="title_container container grid">
+        <h1 class="section_title">Hallo</h1>
+      </div>
+    </section>
+
+    <section class="button section">
+      <div class="button_container container grid">
+        <input type="search" class="search" name="search" id="search" placeholder="Search" />
+        <div class="filter-dropdown">
+          <button type="button" onclick="filterDropdown()" class="filterBtn" id="filterBtn">
+            Filter <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div id="filterDropdown" class="dropdown-content">
+            <a href="">All</a>
+            <a href="">Today</a>
+            <a href="">Complete</a>
+            <a href="">Pending</a>
+          </div>
+        </div>
+        <button class="addBtn" id="addBtn">Add <i class="ri-add-line"></i></button>
+      </div>
+
+      <div class="task_card">
+        <article class="task_item">
+          <div class="task_data">
+            <h2 class="task_title">Tambah data</h2>
+            <div class="task_status">
+              <button type="button" class="completeBtn">Complete</button>
+              <button type="button" class="pendingBtn">Pending</button>
+            </div>
+          </div>
+          <div class="task_button">
+            <button type="button" onclick="editFunction()" class="editBtn">
+              <i class="ri-edit-2-fill"></i>
+            </button>
+            <button type="button" onclick="hapusFunction()" class="hapusBtn">
+              <i class="ri-delete-bin-fill"></i>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="myModal" class="addModal">
+    <div class="modal-content">
+      <form action="">
+        <div class="form-group">
+          <label for="">Task Name</label>
+          <input type="text" name="task" class="form-control" id="taskInput" placeholder="Task">
+        </div>
+        <div class="modalBtn">
+          <button type="button" onclick="simpan()" class="simpanBtn">Simpan</button>
+          <button type="button" class="closeBtn" id="closeBtn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/assets/js/localStorage.js"></script>
+  <script src="/assets/js/task.js"></script>
+  <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

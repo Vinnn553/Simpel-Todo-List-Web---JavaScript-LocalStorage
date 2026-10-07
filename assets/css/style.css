@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    --header-height: 3.5rem;
+
+    /* colors */
+    --hue: 35;
+    --first-color: hsl(var(--hue), 100%, 75%);
+    --first-color-alt: hsl(var(--hue), 80%, 56%);
+    --first-color-alt-2: hsl(var(--hue), 60%, 56%);
+    --first-color-light: hsl(var(--hue), 60%, 74%);
+    --title-color: hsl(0, 0%, 0%);
+    --text-color: hsl(0, 0%, 100%);
+    --text-color-light: hsl(240, 8%, 50%);
+    --body-color: hsl(0, 0%, 100%);
+    --container-color: hsl(0, 0%, 100%);
+
+    /* Font */
+    --body-font: "Ubuntu", sans-serif;
+    --biggest-font-size: 2rem;
+    --bigger-font-size: 1.75rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
+    --very-smaller-size: 0.5rem;
+
+    /* Font Weight */
+    --font-Thin: 100;
+    --font-ExtraLight: 200;
+    --font-Light: 300;
+    --font-Regular: 400;
+    --font-Medium: 500;
+    --font-SemiBold: 600;
+    --font-Bold: 700;
+    --font-ExtraBold: 800;
+    --font-black: 900;
+
+    /* Z Index */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+body {
+    background-color: var(--body-color);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body,
+button {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-weight: var(--font-semi-bold);
+}
+
+label {
+    font-family: var(--body-font);
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+    text-transform: uppercase;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ==== Reusable CSS Classes ==== */
+.container {
+    max-width: 100%;
+    margin-inline: 2rem 2rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.section {
+    margin-inline: 10rem 10rem;
+    padding-block: 5rem 1rem;
+}
+
+.section__title {
+    text-align: center;
+    font-size: var(--h1-font-size);
+    color: var(--container-color);
+    margin-bottom: 3rem;
+}
+
+.main {
+    overflow: hidden;
+}
+
+/* Nav */
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--body-color);
+    box-shadow: 1px 1px 20px black;
+    z-index: var(--z-fixed);
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: .5rem;
+}
+.nav_logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--title-color);
+    font-family: var(--body-font);
+    font-weight: var(--font-SemiBold);
+    letter-spacing: .3px;
+}
+.nav_logo i {
+    color: var(--text-color);
+    font-size: 1.3rem;
+    background-color: hsl(262, 100%, 68%);
+    font-weight: var(--font-Regular);
+    padding: .5rem;
+    border-radius: 10px;
+}
+.nav_link i {
+    color: var(--title-color);
+    font-size: 1rem;
+    font-weight: var(--font-SemiBold);
+}
+
+.button {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
+.button_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search {
+    padding-block: .3rem;
+    padding-left: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.filterBtn {
+    color: var(--text-color);
+    background-color: rgb(152, 88, 198);
+    padding: .5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.addBtn {
+    color: var(--text-color);
+    background-color: rgb(152, 88, 198);
+    padding: .5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    position: absolute;
+    display: none;
+    background-color: var(--text-color);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    padding: 1rem;
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+.show-filter {
+    display: block;
+}
+
+.addModal {
+    position: fixed;
+    z-index: var(--z-fixed), 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3 ease, visibility .3s ease;
+}
+.modal-content {
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: var(--text-color);
+    margin: 20% auto;
+    width: 50%;
+
+    transform: translateY(-20px) scale(.95);
+    transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.addModal.show-modal {
+    opacity: 1;
+    visibility: visible;
+}
+.addModal.show-modal .modal-content {
+    transform: translateY(0) scale(1);
+}
+form {
+    display: grid;
+    gap: .5rem;
+}
+.form-group {
+    display: grid;
+    gap: .5rem;
+}
+.form-control {
+    width: 50%;
+    padding: .2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.modalBtn {
+    display: flex;
+    justify-content: flex-end;
+    gap: .5rem;
+}
+.simpanBtn {
+    color: var(--text-color);
+    background-color: rgb(124, 167, 255);
+    padding: .5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.closeBtn {
+    color: var(--text-color);
+    padding: .5rem;
+    background-color: rgb(255, 112, 112);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.task_card {
+    display: grid;
+    width: 100%;
+    padding: .5rem;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.task_item {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.task_data {
+    display: grid;
+    gap: 1rem;
+}
+.task_title {
+    width: 80%;
+}
+.task_button {
+    display: flex;
+    gap: .5rem;
+}
+.editBtn {
+    width: 30px;
+    height: 30px;
+    color: white;
+    padding: .2rem;
+    background-color: rgb(59, 160, 255);
+    cursor: pointer;
+}
+.hapusBtn {
+    width: 30px;
+    height: 30px;
+    color: white;
+    background-color: rgb(255, 57, 57);
+    cursor: pointer;
+}
+.completeBtn, .pendingBtn {
+    padding: .2rem;
+    background-color: #ffffff;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.completeBtn.active {
+    background-color: rgb(160, 245, 160);
+}
+.pendingBtn.active {
+    background-color: rgb(255, 255, 142);
+}
